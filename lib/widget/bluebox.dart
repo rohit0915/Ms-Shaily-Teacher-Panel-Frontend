@@ -1,0 +1,87 @@
+import 'package:flutter/material.dart';
+import 'package:flutter/src/widgets/container.dart';
+import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:google_fonts/google_fonts.dart';
+
+class BlueBox extends StatelessWidget {
+  final String text;
+  const BlueBox({super.key, required this.text});
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      alignment: Alignment.center,
+      children: [
+        SizedBox(
+          width: MediaQuery.of(context).size.width - 50,
+          height: MediaQuery.of(context).size.height * 0.063,
+          child: SvgPicture.asset(
+            "assets/bluecontainer.svg",
+          ),
+        ),
+        Align(
+          alignment: Alignment.center,
+          child: Text(
+            text,
+            style: GoogleFonts.roboto(
+                fontSize: 20, fontWeight: FontWeight.w500, color: Colors.black),
+          ),
+        )
+      ],
+    );
+  }
+}
+
+class BlueBox2 extends StatelessWidget {
+  final String text;
+
+  BlueBox2({
+    super.key,
+    required this.text,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Stack(
+        alignment: Alignment.center,
+        children: [
+          SizedBox(
+            width: MediaQuery.of(context).size.width - 50,
+            height: MediaQuery.of(context).size.height * 0.04,
+            child: SvgPicture.asset(
+              "assets/bluecontainer.svg",
+              fit: BoxFit.fill,
+            ),
+          ),
+          Positioned(
+            left: 15,
+            child: Container(
+              width: MediaQuery.of(context).size.width - 100,
+              child: ListTile(
+                // minLeadingWidth: 10,
+                leading: Padding(
+                  padding: const EdgeInsets.only(top: 5),
+                  child: Icon(
+                    Icons.circle,
+                    size: 10,
+                    color: Colors.black,
+                  ),
+                ),
+                title: Text(
+                  text,
+                  textAlign: TextAlign.center,
+                  style: GoogleFonts.roboto(
+                      fontSize: 15,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.black),
+                ),
+              ),
+            ),
+          )
+        ],
+      ),
+    );
+  }
+}
