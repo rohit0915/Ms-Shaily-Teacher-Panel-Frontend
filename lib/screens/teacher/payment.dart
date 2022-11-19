@@ -4,9 +4,9 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:shaily/common/style.dart';
 import 'package:shaily/widget/button.dart';
 
-import '../common/style.dart';
 
 class Payment extends StatelessWidget {
   const Payment({super.key});

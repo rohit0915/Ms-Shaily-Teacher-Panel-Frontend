@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
-
+import 'package:flutter/src/widgets/container.dart';
+import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shaily/common/style.dart';
-import 'package:shaily/screens/teacher/educational.dart';
-import 'package:shaily/screens/teacher/noneducational.dart';
-
 import 'package:shaily/widget/bluebox.dart';
-
+import 'dart:ui' as ui;
 
 import 'package:shaily/widget/redbox.dart';
+
+import 'educational.dart';
+import 'noneducational.dart';
 
 class Categories extends StatelessWidget {
   const Categories({super.key});

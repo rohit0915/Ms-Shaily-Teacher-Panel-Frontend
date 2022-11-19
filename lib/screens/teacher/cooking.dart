@@ -3,9 +3,11 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:shaily/common/style.dart';
+import 'package:shaily/widget/bluebox.dart';
 
-import '../common/style.dart';
-import '../widget/bluebox.dart';
+import 'cooking1.dart';
+
 
 class Cooking extends StatelessWidget {
   const Cooking({super.key});
@@ -39,6 +41,9 @@ class Cooking extends StatelessWidget {
               height: MediaQuery.of(context).size.height * 0.03,
             ),
             InkWell(
+              onTap: () {
+                Get.to(() => Cooking1());
+              },
               child: BlueBox2(
                 text: "Indian Cuisine",
               ),
@@ -47,6 +52,9 @@ class Cooking extends StatelessWidget {
               height: MediaQuery.of(context).size.height * 0.01,
             ),
             InkWell(
+              onTap: () {
+                Get.to(() => Cooking1());
+              },
               child: BlueBox2(
                 text: "Italian Cuisine",
               ),
@@ -55,6 +63,9 @@ class Cooking extends StatelessWidget {
               height: MediaQuery.of(context).size.height * 0.01,
             ),
             InkWell(
+              onTap: () {
+                Get.to(() => Cooking1());
+              },
               child: BlueBox2(
                 text: "Chinese Cuisine",
               ),
@@ -63,6 +74,9 @@ class Cooking extends StatelessWidget {
               height: MediaQuery.of(context).size.height * 0.01,
             ),
             InkWell(
+              onTap: () {
+                Get.to(() => Cooking1());
+              },
               child: BlueBox2(
                 text: "Japanese Cuisine",
               ),
@@ -71,6 +85,9 @@ class Cooking extends StatelessWidget {
               height: MediaQuery.of(context).size.height * 0.01,
             ),
             InkWell(
+              onTap: () {
+                Get.to(() => Cooking1());
+              },
               child: BlueBox2(
                 text: "French Cuisine",
               ),
@@ -79,6 +96,9 @@ class Cooking extends StatelessWidget {
               height: MediaQuery.of(context).size.height * 0.01,
             ),
             InkWell(
+              onTap: () {
+                Get.to(() => Cooking1());
+              },
               child: BlueBox2(
                 text: "Mexican Cuisine",
               ),
@@ -87,6 +107,9 @@ class Cooking extends StatelessWidget {
               height: MediaQuery.of(context).size.height * 0.01,
             ),
             InkWell(
+              onTap: () {
+                Get.to(() => Cooking1());
+              },
               child: BlueBox2(
                 text: "Thai Cuisine",
               ),
@@ -95,6 +118,9 @@ class Cooking extends StatelessWidget {
               height: MediaQuery.of(context).size.height * 0.01,
             ),
             InkWell(
+              onTap: () {
+                Get.to(() => Cooking1());
+              },
               child: BlueBox2(
                 text: "spanish Cuisine",
               ),
@@ -103,6 +129,9 @@ class Cooking extends StatelessWidget {
               height: MediaQuery.of(context).size.height * 0.01,
             ),
             InkWell(
+              onTap: () {
+                Get.to(() => Cooking1());
+              },
               child: BlueBox2(
                 text: "American Cuisine",
               ),
@@ -111,6 +140,9 @@ class Cooking extends StatelessWidget {
               height: MediaQuery.of(context).size.height * 0.01,
             ),
             InkWell(
+              onTap: () {
+                Get.to(() => Cooking1());
+              },
               child: BlueBox2(
                 text: "Greek Cuisine",
               ),
@@ -119,6 +151,9 @@ class Cooking extends StatelessWidget {
               height: MediaQuery.of(context).size.height * 0.01,
             ),
             InkWell(
+              onTap: () {
+                Get.to(() => Cooking1());
+              },
               child: BlueBox2(
                 text: "Korean Cuisine",
               ),
@@ -127,6 +162,9 @@ class Cooking extends StatelessWidget {
               height: MediaQuery.of(context).size.height * 0.01,
             ),
             InkWell(
+              onTap: () {
+                Get.to(() => Cooking1());
+              },
               child: BlueBox2(
                 text: "German Cuisine",
               ),
@@ -135,6 +173,9 @@ class Cooking extends StatelessWidget {
               height: MediaQuery.of(context).size.height * 0.01,
             ),
             InkWell(
+              onTap: () {
+                Get.to(() => Cooking1());
+              },
               child: BlueBox2(
                 text: "Labanese Cuisine",
               ),
@@ -143,6 +184,9 @@ class Cooking extends StatelessWidget {
               height: MediaQuery.of(context).size.height * 0.01,
             ),
             InkWell(
+              onTap: () {
+                Get.to(() => Cooking1());
+              },
               child: BlueBox2(
                 text: "Russian Cuisine",
               ),
@@ -151,6 +195,9 @@ class Cooking extends StatelessWidget {
               height: MediaQuery.of(context).size.height * 0.01,
             ),
             InkWell(
+              onTap: () {
+                Get.to(() => Cooking1());
+              },
               child: BlueBox2(
                 text: "Turkish Cuisine",
               ),
@@ -159,6 +206,9 @@ class Cooking extends StatelessWidget {
               height: MediaQuery.of(context).size.height * 0.01,
             ),
             InkWell(
+              onTap: () {
+                Get.to(() => Cooking1());
+              },
               child: BlueBox2(
                 text: "Indonesian Cuisine",
               ),
@@ -167,6 +217,9 @@ class Cooking extends StatelessWidget {
               height: MediaQuery.of(context).size.height * 0.01,
             ),
             InkWell(
+              onTap: () {
+                Get.to(() => Cooking1());
+              },
               child: BlueBox2(
                 text: "Malaysian Cuisine",
               ),
@@ -175,6 +228,9 @@ class Cooking extends StatelessWidget {
               height: MediaQuery.of(context).size.height * 0.01,
             ),
             InkWell(
+              onTap: () {
+                Get.to(() => Cooking1());
+              },
               child: BlueBox2(
                 text: "Ethopian Cuisine",
               ),
@@ -183,6 +239,9 @@ class Cooking extends StatelessWidget {
               height: MediaQuery.of(context).size.height * 0.01,
             ),
             InkWell(
+              onTap: () {
+                Get.to(() => Cooking1());
+              },
               child: BlueBox2(
                 text: "Brazillian Cuisine",
               ),
@@ -191,6 +250,9 @@ class Cooking extends StatelessWidget {
               height: MediaQuery.of(context).size.height * 0.01,
             ),
             InkWell(
+              onTap: () {
+                Get.to(() => Cooking1());
+              },
               child: BlueBox2(
                 text: "Vietnamese Cuisine",
               ),
@@ -199,6 +261,9 @@ class Cooking extends StatelessWidget {
               height: MediaQuery.of(context).size.height * 0.01,
             ),
             InkWell(
+              onTap: () {
+                Get.to(() => Cooking1());
+              },
               child: BlueBox2(
                 text: "Cuban Cuisine",
               ),
@@ -207,6 +272,9 @@ class Cooking extends StatelessWidget {
               height: MediaQuery.of(context).size.height * 0.01,
             ),
             InkWell(
+              onTap: () {
+                Get.to(() => Cooking1());
+              },
               child: BlueBox2(
                 text: "Middle Eastern Cuisine ",
               ),

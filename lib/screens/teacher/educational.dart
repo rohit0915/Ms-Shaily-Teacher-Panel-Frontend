@@ -4,13 +4,14 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shaily/common/style.dart';
-import 'package:shaily/screens/art.dart';
-import 'package:shaily/screens/commerce.dart';
-import 'package:shaily/screens/locate_student.dart';
-import 'package:shaily/screens/science.dart';
+
 import 'package:shaily/widget/bluebox.dart';
 import 'package:shaily/widget/button.dart';
 import 'package:shaily/widget/redbox.dart';
+
+import 'art.dart';
+import 'commerce.dart';
+import 'science.dart';
 
 class Educational extends StatefulWidget {
   const Educational({super.key});
@@ -20,10 +21,10 @@ class Educational extends StatefulWidget {
 }
 
 class _EducationalState extends State<Educational> {
-  bool isScience = false;
-  bool isArt = false;
-  bool isCommerce = false;
-  bool isTapped = false;
+  // bool isScience = false;
+  // bool isArt = false;
+  // bool isCommerce = false;
+  // bool isTapped = false;
 
   // List<String> sub = ["Science", "Art", "Commerce"];
 
@@ -54,57 +55,64 @@ class _EducationalState extends State<Educational> {
         children: [
           InkWell(
               onTap: () {
-                setState(() {
-                  isScience = true;
-                  isCommerce = false;
-                  isArt = false;
-                  isTapped = true;
-                });
+                // setState(() {
+                //   isScience = true;
+                //   isCommerce = false;
+                //   isArt = false;
+                //   isTapped = true;
+                // });
+                Get.to(() => Science());
               },
-              child: isScience
-                  ? BlueBox(text: "Science")
+              child
+                  // isScience
+                  //     ? BlueBox(text: "Science")
                   : RedBox(text: "Science")),
           SizedBox(height: MediaQuery.of(context).size.height * 0.06),
           InkWell(
               onTap: () {
-                setState(() {
-                  isArt = true;
-                  isCommerce = false;
-                  isScience = false;
-                  isTapped = true;
-                });
+                // setState(() {
+                //   isArt = true;
+                //   isCommerce = false;
+                //   isScience = false;
+                //   isTapped = true;
+                // });
+                Get.to(() => Art());
               },
-              child: isArt ? BlueBox(text: "Art") : RedBox(text: "Art")),
+              child
+                  //  isArt ? BlueBox(text: "Art")
+                  : RedBox(text: "Art")),
           SizedBox(height: MediaQuery.of(context).size.height * 0.06),
           InkWell(
               onTap: () {
-                setState(() {
-                  isCommerce = true;
-                  isArt = false;
-                  isScience = false;
-                  isTapped = true;
-                });
+                // setState(() {
+                //   isCommerce = true;
+                //   isArt = false;
+                //   isScience = false;
+                //   isTapped = true;
+                // });
+                Get.to(() => Commerce());
               },
-              child: isCommerce
-                  ? BlueBox(text: "Commerce")
+              child
+                  // isCommerce
+                  //     ? BlueBox(text: "Commerce")
                   : RedBox(text: "Commerce")),
           SizedBox(height: MediaQuery.of(context).size.height * 0.08),
-          isTapped
-              ? InkWell(
-                  onTap: () {
-                    // Get.to(() => LocateStudent());
-                    if (isCommerce) {
-                      Get.to(() => Commerce());
-                    }
-                    if (isArt) {
-                      Get.to(() => Art());
-                    }
-                    if (isScience) {
-                      Get.to(() => Science());
-                    }
-                  },
-                  child: Button2())
-              : Container()
+          // isTapped
+          //     ? InkWell(
+          //         onTap: () {
+          //           // Get.to(() => LocateStudent());
+          //           if (isCommerce) {
+          //             Get.to(() => Commerce());
+          //           }
+          //           if (isArt) {
+          //             Get.to(() => Art());
+          //           }
+          //           if (isScience) {
+          //             Get.to(() => Science());
+          //           }
+          //         },
+          //         child: Button2())
+          //     : Container()
         ],
       ),
     );

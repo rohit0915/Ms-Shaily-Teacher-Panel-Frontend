@@ -3,8 +3,6 @@ import 'package:get/get.dart';
 
 import 'package:shaily/screens/welcome.dart';
 
-import 'screens/home.dart';
-
 void main() {
   runApp(MyApp());
 }

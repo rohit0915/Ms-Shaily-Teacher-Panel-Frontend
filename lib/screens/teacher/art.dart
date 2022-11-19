@@ -3,12 +3,13 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:shaily/common/style.dart';
 import 'package:shaily/widget/redbox.dart';
 
-import '../common/style.dart';
+import 'art1.dart';
 
-class Commerce extends StatelessWidget {
-  const Commerce({super.key});
+class Art extends StatelessWidget {
+  const Art({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +28,7 @@ class Commerce extends StatelessWidget {
             )),
         // centerTitle: true,
         title: Text(
-          "Commerce",
+          "Art",
           style: GoogleFonts.roboto(
               fontSize: 22, color: Colors.black, fontWeight: FontWeight.w500),
         ),
@@ -38,39 +39,67 @@ class Commerce extends StatelessWidget {
             height: MediaQuery.of(context).size.height * 0.02,
           ),
           InkWell(
+            onTap: () {
+              Get.to(() => Art1());
+            },
             child: RedBox2(
-              text: "Accounting",
+              text: "History",
             ),
           ),
           SizedBox(
             height: MediaQuery.of(context).size.height * 0.06,
           ),
-          RedBox2(
-            text: "Bussiness studies",
+          InkWell(
+            onTap: () {
+              Get.to(() => Art1());
+            },
+            child: RedBox2(
+              text: "Sociology",
+            ),
           ),
           SizedBox(
             height: MediaQuery.of(context).size.height * 0.06,
           ),
-          RedBox2(
-            text: "Economics",
+          InkWell(
+            onTap: () {
+              Get.to(() => Art1());
+            },
+            child: RedBox2(
+              text: "Philosophy",
+            ),
           ),
           SizedBox(
             height: MediaQuery.of(context).size.height * 0.06,
           ),
-          RedBox2(
-            text: "Bussiness Mathematics",
+          InkWell(
+            onTap: () {
+              Get.to(() => Art1());
+            },
+            child: RedBox2(
+              text: "Geography",
+            ),
           ),
           SizedBox(
             height: MediaQuery.of(context).size.height * 0.06,
           ),
-          RedBox2(
-            text: "Informatics",
+          InkWell(
+            onTap: () {
+              Get.to(() => Art1());
+            },
+            child: RedBox2(
+              text: "Political Science",
+            ),
           ),
           SizedBox(
             height: MediaQuery.of(context).size.height * 0.06,
           ),
-          RedBox2(
-            text: "GST",
+          InkWell(
+            onTap: () {
+              Get.to(() => Art1());
+            },
+            child: RedBox2(
+              text: "Law",
+            ),
           )
         ],
       ),

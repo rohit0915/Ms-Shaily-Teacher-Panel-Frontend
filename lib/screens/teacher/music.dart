@@ -3,9 +3,11 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:shaily/common/style.dart';
+import 'package:shaily/widget/bluebox.dart';
 
-import '../common/style.dart';
-import '../widget/bluebox.dart';
+import 'music1.dart';
+
 
 class Music extends StatelessWidget {
   const Music({super.key});
@@ -39,6 +41,9 @@ class Music extends StatelessWidget {
               height: MediaQuery.of(context).size.height * 0.03,
             ),
             InkWell(
+              onTap: () {
+                Get.to(() => Music1());
+              },
               child: BlueBox2(
                 text: "Flute",
               ),
@@ -47,6 +52,9 @@ class Music extends StatelessWidget {
               height: MediaQuery.of(context).size.height * 0.01,
             ),
             InkWell(
+              onTap: () {
+                Get.to(() => Music1());
+              },
               child: BlueBox2(
                 text: "Voilin",
               ),
@@ -55,6 +63,9 @@ class Music extends StatelessWidget {
               height: MediaQuery.of(context).size.height * 0.01,
             ),
             InkWell(
+              onTap: () {
+                Get.to(() => Music1());
+              },
               child: BlueBox2(
                 text: "Guitar",
               ),
@@ -63,6 +74,9 @@ class Music extends StatelessWidget {
               height: MediaQuery.of(context).size.height * 0.01,
             ),
             InkWell(
+              onTap: () {
+                Get.to(() => Music1());
+              },
               child: BlueBox2(
                 text: "Keyboard Instruments",
               ),
@@ -71,6 +85,9 @@ class Music extends StatelessWidget {
               height: MediaQuery.of(context).size.height * 0.01,
             ),
             InkWell(
+              onTap: () {
+                Get.to(() => Music1());
+              },
               child: BlueBox2(
                 text: "Clarinet",
               ),
@@ -79,6 +96,9 @@ class Music extends StatelessWidget {
               height: MediaQuery.of(context).size.height * 0.01,
             ),
             InkWell(
+              onTap: () {
+                Get.to(() => Music1());
+              },
               child: BlueBox2(
                 text: "String Instruments",
               ),
@@ -87,6 +107,9 @@ class Music extends StatelessWidget {
               height: MediaQuery.of(context).size.height * 0.01,
             ),
             InkWell(
+              onTap: () {
+                Get.to(() => Music1());
+              },
               child: BlueBox2(
                 text: "Bass Guitar",
               ),
@@ -95,6 +118,9 @@ class Music extends StatelessWidget {
               height: MediaQuery.of(context).size.height * 0.01,
             ),
             InkWell(
+              onTap: () {
+                Get.to(() => Music1());
+              },
               child: BlueBox2(
                 text: "Percussion",
               ),
@@ -103,6 +129,9 @@ class Music extends StatelessWidget {
               height: MediaQuery.of(context).size.height * 0.01,
             ),
             InkWell(
+              onTap: () {
+                Get.to(() => Music1());
+              },
               child: BlueBox2(
                 text: "Piano",
               ),
@@ -111,6 +140,9 @@ class Music extends StatelessWidget {
               height: MediaQuery.of(context).size.height * 0.01,
             ),
             InkWell(
+              onTap: () {
+                Get.to(() => Music1());
+              },
               child: BlueBox2(
                 text: "Trumpet",
               ),
@@ -119,6 +151,9 @@ class Music extends StatelessWidget {
               height: MediaQuery.of(context).size.height * 0.01,
             ),
             InkWell(
+              onTap: () {
+                Get.to(() => Music1());
+              },
               child: BlueBox2(
                 text: "Banjo",
               ),
@@ -127,6 +162,9 @@ class Music extends StatelessWidget {
               height: MediaQuery.of(context).size.height * 0.01,
             ),
             InkWell(
+              onTap: () {
+                Get.to(() => Music1());
+              },
               child: BlueBox2(
                 text: "Drums",
               ),
@@ -135,6 +173,9 @@ class Music extends StatelessWidget {
               height: MediaQuery.of(context).size.height * 0.01,
             ),
             InkWell(
+              onTap: () {
+                Get.to(() => Music1());
+              },
               child: BlueBox2(
                 text: "Ubulele",
               ),
@@ -143,6 +184,9 @@ class Music extends StatelessWidget {
               height: MediaQuery.of(context).size.height * 0.01,
             ),
             InkWell(
+              onTap: () {
+                Get.to(() => Music1());
+              },
               child: BlueBox2(
                 text: "Brass",
               ),
@@ -151,6 +195,9 @@ class Music extends StatelessWidget {
               height: MediaQuery.of(context).size.height * 0.01,
             ),
             InkWell(
+              onTap: () {
+                Get.to(() => Music1());
+              },
               child: BlueBox2(
                 text: "Drusmet",
               ),
@@ -159,6 +206,9 @@ class Music extends StatelessWidget {
               height: MediaQuery.of(context).size.height * 0.01,
             ),
             InkWell(
+              onTap: () {
+                Get.to(() => Music1());
+              },
               child: BlueBox2(
                 text: "Xylophone",
               ),
@@ -167,6 +217,9 @@ class Music extends StatelessWidget {
               height: MediaQuery.of(context).size.height * 0.01,
             ),
             InkWell(
+              onTap: () {
+                Get.to(() => Music1());
+              },
               child: BlueBox2(
                 text: "WoodWind",
               ),
@@ -175,6 +228,9 @@ class Music extends StatelessWidget {
               height: MediaQuery.of(context).size.height * 0.01,
             ),
             InkWell(
+              onTap: () {
+                Get.to(() => Music1());
+              },
               child: BlueBox2(
                 text: "French horn",
               ),
@@ -183,6 +239,9 @@ class Music extends StatelessWidget {
               height: MediaQuery.of(context).size.height * 0.01,
             ),
             InkWell(
+              onTap: () {
+                Get.to(() => Music1());
+              },
               child: BlueBox2(
                 text: "Tabla",
               ),
@@ -191,6 +250,9 @@ class Music extends StatelessWidget {
               height: MediaQuery.of(context).size.height * 0.01,
             ),
             InkWell(
+              onTap: () {
+                Get.to(() => Music1());
+              },
               child: BlueBox2(
                 text: "Ballet Dance",
               ),
@@ -199,6 +261,9 @@ class Music extends StatelessWidget {
               height: MediaQuery.of(context).size.height * 0.01,
             ),
             InkWell(
+              onTap: () {
+                Get.to(() => Music1());
+              },
               child: BlueBox2(
                 text: "Ballroom",
               ),
@@ -207,6 +272,9 @@ class Music extends StatelessWidget {
               height: MediaQuery.of(context).size.height * 0.01,
             ),
             InkWell(
+              onTap: () {
+                Get.to(() => Music1());
+              },
               child: BlueBox2(
                 text: "Contemporary",
               ),
@@ -215,6 +283,9 @@ class Music extends StatelessWidget {
               height: MediaQuery.of(context).size.height * 0.01,
             ),
             InkWell(
+              onTap: () {
+                Get.to(() => Music1());
+              },
               child: BlueBox2(
                 text: "Contemporary",
               ),
@@ -223,6 +294,9 @@ class Music extends StatelessWidget {
               height: MediaQuery.of(context).size.height * 0.01,
             ),
             InkWell(
+              onTap: () {
+                Get.to(() => Music1());
+              },
               child: BlueBox2(
                 text: "HipHop",
               ),
@@ -231,6 +305,9 @@ class Music extends StatelessWidget {
               height: MediaQuery.of(context).size.height * 0.01,
             ),
             InkWell(
+              onTap: () {
+                Get.to(() => Music1());
+              },
               child: BlueBox2(
                 text: "Jazz",
               ),
@@ -239,6 +316,9 @@ class Music extends StatelessWidget {
               height: MediaQuery.of(context).size.height * 0.01,
             ),
             InkWell(
+              onTap: () {
+                Get.to(() => Music1());
+              },
               child: BlueBox2(
                 text: "Folk Dance",
               ),
@@ -247,6 +327,9 @@ class Music extends StatelessWidget {
               height: MediaQuery.of(context).size.height * 0.01,
             ),
             InkWell(
+              onTap: () {
+                Get.to(() => Music1());
+              },
               child: BlueBox2(
                 text: "Irish Dance",
               ),
@@ -255,6 +338,9 @@ class Music extends StatelessWidget {
               height: MediaQuery.of(context).size.height * 0.01,
             ),
             InkWell(
+              onTap: () {
+                Get.to(() => Music1());
+              },
               child: BlueBox2(
                 text: "Mordern Dance",
               ),
@@ -263,6 +349,9 @@ class Music extends StatelessWidget {
               height: MediaQuery.of(context).size.height * 0.01,
             ),
             InkWell(
+              onTap: () {
+                Get.to(() => Music1());
+              },
               child: BlueBox2(
                 text: "Swing Dance",
               ),
@@ -271,6 +360,9 @@ class Music extends StatelessWidget {
               height: MediaQuery.of(context).size.height * 0.01,
             ),
             InkWell(
+              onTap: () {
+                Get.to(() => Music1());
+              },
               child: BlueBox2(
                 text: "Bharatnatyam",
               ),
@@ -279,6 +371,9 @@ class Music extends StatelessWidget {
               height: MediaQuery.of(context).size.height * 0.01,
             ),
             InkWell(
+              onTap: () {
+                Get.to(() => Music1());
+              },
               child: BlueBox2(
                 text: "Kathakalli",
               ),
@@ -287,6 +382,9 @@ class Music extends StatelessWidget {
               height: MediaQuery.of(context).size.height * 0.01,
             ),
             InkWell(
+              onTap: () {
+                Get.to(() => Music1());
+              },
               child: BlueBox2(
                 text: "Kathaak",
               ),
@@ -295,6 +393,9 @@ class Music extends StatelessWidget {
               height: MediaQuery.of(context).size.height * 0.01,
             ),
             InkWell(
+              onTap: () {
+                Get.to(() => Music1());
+              },
               child: BlueBox2(
                 text: "kutchipudi",
               ),
@@ -303,6 +404,9 @@ class Music extends StatelessWidget {
               height: MediaQuery.of(context).size.height * 0.01,
             ),
             InkWell(
+              onTap: () {
+                Get.to(() => Music1());
+              },
               child: BlueBox2(
                 text: "Odissi",
               ),
@@ -311,6 +415,9 @@ class Music extends StatelessWidget {
               height: MediaQuery.of(context).size.height * 0.01,
             ),
             InkWell(
+              onTap: () {
+                Get.to(() => Music1());
+              },
               child: BlueBox2(
                 text: "Sattriya",
               ),

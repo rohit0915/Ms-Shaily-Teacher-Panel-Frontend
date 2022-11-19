@@ -3,12 +3,14 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:shaily/common/style.dart';
+import 'package:shaily/widget/bluebox.dart';
 
-import '../common/style.dart';
-import '../widget/bluebox.dart';
+import 'craft1.dart';
 
-class Sport extends StatelessWidget {
-  const Sport({super.key});
+
+class Craft extends StatelessWidget {
+  const Craft({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +21,7 @@ class Sport extends StatelessWidget {
         // centerTitle: true,
         elevation: 0,
         title: Text(
-          "Sports & Gymnasiam",
+          "Art & Crafts",
           style: GoogleFonts.roboto(
               fontSize: 20, fontWeight: FontWeight.w500, color: Colors.black),
         ),
@@ -38,88 +40,121 @@ class Sport extends StatelessWidget {
             height: MediaQuery.of(context).size.height * 0.03,
           ),
           InkWell(
+            onTap: () {
+              Get.to(() => Craft1());
+            },
             child: BlueBox2(
-              text: "Tumbling",
+              text: "Ceremics Crafts",
             ),
           ),
           SizedBox(
             height: MediaQuery.of(context).size.height * 0.03,
           ),
           InkWell(
+            onTap: () {
+              Get.to(() => Craft1());
+            },
             child: BlueBox2(
-              text: "Weight Lifting",
+              text: "Fibre & Textiles Crafts",
             ),
           ),
           SizedBox(
             height: MediaQuery.of(context).size.height * 0.03,
           ),
           InkWell(
+            onTap: () {
+              Get.to(() => Craft1());
+            },
             child: BlueBox2(
-              text: "Dead Lifting",
+              text: "Flowers Crafts",
             ),
           ),
           SizedBox(
             height: MediaQuery.of(context).size.height * 0.03,
           ),
           InkWell(
+            onTap: () {
+              Get.to(() => Craft1());
+            },
             child: BlueBox2(
-              text: "Archery",
+              text: "Leather works",
             ),
           ),
           SizedBox(
             height: MediaQuery.of(context).size.height * 0.03,
           ),
           InkWell(
+            onTap: () {
+              Get.to(() => Craft1());
+            },
             child: BlueBox2(
-              text: "Bowling",
+              text: "Homeware",
             ),
           ),
           SizedBox(
             height: MediaQuery.of(context).size.height * 0.03,
           ),
           InkWell(
+            onTap: () {
+              Get.to(() => Craft1());
+            },
             child: BlueBox2(
-              text: "Hockey",
+              text: "Fashions",
             ),
           ),
           SizedBox(
             height: MediaQuery.of(context).size.height * 0.03,
           ),
           InkWell(
+            onTap: () {
+              Get.to(() => Craft1());
+            },
             child: BlueBox2(
-              text: "Lawn Hockey",
+              text: "Needle works",
             ),
           ),
           SizedBox(
             height: MediaQuery.of(context).size.height * 0.03,
           ),
           InkWell(
+            onTap: () {
+              Get.to(() => Craft1());
+            },
             child: BlueBox2(
-              text: "Cricket",
+              text: "Paper Crafts",
             ),
           ),
           SizedBox(
             height: MediaQuery.of(context).size.height * 0.03,
           ),
           InkWell(
+            onTap: () {
+              Get.to(() => Craft1());
+            },
             child: BlueBox2(
-              text: "Driving",
+              text: "Woods & Furnitures Crafts",
             ),
           ),
           SizedBox(
             height: MediaQuery.of(context).size.height * 0.03,
           ),
           InkWell(
+            onTap: () {
+              Get.to(() => Craft1());
+            },
             child: BlueBox2(
-              text: "Dietician",
+              text: "Stone Crafts",
             ),
           ),
           SizedBox(
             height: MediaQuery.of(context).size.height * 0.03,
           ),
           InkWell(
+            onTap: () {
+              Get.to(() => Craft1());
+            },
             child: BlueBox2(
-              text: "Gym Trainer",
+              text: "Metals Crafts",
             ),
           ),
         ],

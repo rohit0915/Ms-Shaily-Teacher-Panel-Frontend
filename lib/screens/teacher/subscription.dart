@@ -5,6 +5,8 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shaily/common/style.dart';
 
+import 'payment.dart';
+
 class Subscription extends StatelessWidget {
   const Subscription({super.key});
 
@@ -34,15 +36,27 @@ class Subscription extends StatelessWidget {
         padding: const EdgeInsets.only(left: 10, right: 10, top: 20),
         child: Column(
           children: [
-            Image.asset("assets/one.png"),
+            InkWell(
+                onTap: () {
+                  Get.to(() => Payment());
+                },
+                child: Image.asset("assets/one.png")),
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.04,
             ),
-            Image.asset("assets/six.png"),
+            InkWell(
+                onTap: () {
+                  Get.to(() => Payment());
+                },
+                child: Image.asset("assets/six.png")),
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.04,
             ),
-            Image.asset("assets/twelve.png"),
+            InkWell(
+                onTap: () {
+                  Get.to(() => Payment());
+                },
+                child: Image.asset("assets/twelve.png")),
           ],
         ),
       ),

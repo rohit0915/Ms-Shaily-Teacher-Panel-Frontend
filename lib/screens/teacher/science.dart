@@ -3,9 +3,11 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:shaily/common/style.dart';
+import 'package:shaily/widget/redbox.dart';
 
-import '../common/style.dart';
-import '../widget/redbox.dart';
+import 'science1.dart';
+
 
 class Science extends StatelessWidget {
   const Science({super.key});
@@ -39,6 +41,9 @@ class Science extends StatelessWidget {
               height: MediaQuery.of(context).size.height * 0.01,
             ),
             InkWell(
+              onTap: () {
+                Get.to(() => Science1());
+              },
               child: RedBox2(
                 text: "Mathematics",
               ),
@@ -46,38 +51,73 @@ class Science extends StatelessWidget {
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.01,
             ),
-            RedBox2(
-              text: "Chemistry",
+            InkWell(
+              onTap: () {
+                Get.to(() => Science1());
+              },
+              child: RedBox2(
+                text: "Chemistry",
+              ),
+            ),
+            InkWell(
+              onTap: () {
+                Get.to(() => Science1());
+              },
+              child: SizedBox(
+                height: MediaQuery.of(context).size.height * 0.01,
+              ),
+            ),
+            InkWell(
+              onTap: () {
+                Get.to(() => Science1());
+              },
+              child: RedBox2(
+                text: "Computer Science",
+              ),
             ),
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.01,
             ),
-            RedBox2(
-              text: "Computer Science",
+            InkWell(
+              onTap: () {
+                Get.to(() => Science1());
+              },
+              child: RedBox2(
+                text: "Physics",
+              ),
             ),
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.01,
             ),
-            RedBox2(
-              text: "Physics",
+            InkWell(
+              onTap: () {
+                Get.to(() => Science1());
+              },
+              child: RedBox2(
+                text: "Psychology",
+              ),
             ),
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.01,
             ),
-            RedBox2(
-              text: "Psychology",
+            InkWell(
+              onTap: () {
+                Get.to(() => Science1());
+              },
+              child: RedBox2(
+                text: "Biology",
+              ),
             ),
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.01,
             ),
-            RedBox2(
-              text: "Biology",
-            ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.01,
-            ),
-            RedBox2(
-              text: "Home SCience",
+            InkWell(
+              onTap: () {
+                Get.to(() => Science1());
+              },
+              child: RedBox2(
+                text: "Home SCience",
+              ),
             ),
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.01,
