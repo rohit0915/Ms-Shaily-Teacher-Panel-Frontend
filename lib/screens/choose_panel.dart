@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shaily/common/style.dart';
 
-// import 'student/stu_register.dart';
+import 'student/stu_register.dart';
 import 'teacher/register.dart';
 
 class ChoosePanel extends StatefulWidget {
@@ -52,7 +52,7 @@ class _ChoosePanelState extends State<ChoosePanel> {
                 setState(() {
                   isStudent = true;
                 });
-                // Get.to(() => StuRegister());
+                Get.to(() => StuRegister());
               },
               child: Column(
                 children: [

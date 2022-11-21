@@ -1,17 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
+
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shaily/common/style.dart';
-
 import 'package:shaily/widget/button.dart';
 import 'package:shaily/widget/logo.dart';
 
-import 'categories.dart';
+import 'stu_categories.dart';
 
-class Register extends StatelessWidget {
-  const Register({super.key});
+class StuRegister extends StatelessWidget {
+  const StuRegister({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +30,7 @@ class Register extends StatelessWidget {
               ),
               InkWell(
                   onTap: () {
-                    Get.to(() => Categories());
+                    Get.to(() => StuCategories());
                   },
                   child: Button(
                     text: "Continue",

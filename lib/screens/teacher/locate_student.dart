@@ -7,9 +7,15 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:shaily/common/style.dart';
 import 'package:shaily/widget/button.dart';
 
-class LocateStudent extends StatelessWidget {
+class LocateStudent extends StatefulWidget {
   const LocateStudent({super.key});
 
+  @override
+  State<LocateStudent> createState() => _LocateStudentState();
+}
+
+class _LocateStudentState extends State<LocateStudent> {
+  var isTapped = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,24 +47,74 @@ class LocateStudent extends StatelessWidget {
             ),
             SizedBox(height: MediaQuery.of(context).size.height * 0.02),
             Padding(
-              padding: const EdgeInsets.only(left: 15, bottom: 20),
-              child: Container(
-                alignment: Alignment.center,
-                height: MediaQuery.of(context).size.height * 0.05,
-                width: MediaQuery.of(context).size.width - 150,
-                decoration: BoxDecoration(
-                    border: Border.all(color: Colors.black),
-                    borderRadius: BorderRadius.circular(20.0)),
-                child: Text(
-                  "Select your prefered distance",
-                  style: GoogleFonts.poppins(
-                      fontSize: 15,
-                      fontWeight: FontWeight.w400,
-                      color: Style.blue),
+              padding: const EdgeInsets.only(left: 15, bottom: 10),
+              child: InkWell(
+                onTap: () {
+                  setState(() {
+                    isTapped = true;
+                  });
+                },
+                child: Container(
+                  alignment: Alignment.center,
+                  height: MediaQuery.of(context).size.height * 0.05,
+                  width: MediaQuery.of(context).size.width - 150,
+                  decoration: BoxDecoration(
+                      border: Border.all(color: Colors.black),
+                      color: isTapped ? Style.green : Colors.white,
+                      borderRadius: BorderRadius.circular(20.0)),
+                  child: Text(
+                    "Select your prefered distance",
+                    style: GoogleFonts.poppins(
+                        fontSize: 15,
+                        fontWeight: FontWeight.w400,
+                        color: isTapped ? Colors.white : Style.blue),
+                  ),
                 ),
               ),
             ),
-            Center(child: Button2())
+            isTapped
+                ? Center(
+                    child: Column(
+                      children: [
+                        Text(
+                          "2 kms away",
+                          style: GoogleFonts.poppins(
+                              fontSize: 15,
+                              fontWeight: FontWeight.w400,
+                              color: Colors.black),
+                        ),
+                        Text(
+                          "5 kms away",
+                          style: GoogleFonts.poppins(
+                              fontSize: 15,
+                              fontWeight: FontWeight.w400,
+                              color: Colors.black),
+                        ),
+                        Text(
+                          "10 kms away",
+                          style: GoogleFonts.poppins(
+                              fontSize: 15,
+                              fontWeight: FontWeight.w400,
+                              color: Colors.black),
+                        ),
+                        Text(
+                          "20 kms away",
+                          style: GoogleFonts.poppins(
+                              fontSize: 15,
+                              fontWeight: FontWeight.w400,
+                              color: Colors.black),
+                        )
+                      ],
+                    ),
+                  )
+                : Container(),
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.02,
+            ),
+            Center(child: Button2()),
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.04,
+            ),
           ],
         ),
       ),

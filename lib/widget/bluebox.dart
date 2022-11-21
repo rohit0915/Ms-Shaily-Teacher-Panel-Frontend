@@ -15,9 +15,10 @@ class BlueBox extends StatelessWidget {
       children: [
         SizedBox(
           width: MediaQuery.of(context).size.width - 50,
-          height: MediaQuery.of(context).size.height * 0.063,
+          height: MediaQuery.of(context).size.height * 0.065,
           child: SvgPicture.asset(
             "assets/bluecontainer.svg",
+            fit: BoxFit.fill,
           ),
         ),
         Align(
