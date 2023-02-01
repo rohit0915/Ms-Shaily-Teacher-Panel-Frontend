@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+<string name="app_name">Shaily</string>
+<string name="facebook_app_id">1216960382588234</string>
+<string name="fb_login_protocol_scheme">fb1216960382588234</string>
+<string name="facebook_client_token">97a3ee97ac3c91ab9d61314991e32cd1</string>
+
+
+</resources>

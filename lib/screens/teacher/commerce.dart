@@ -4,13 +4,22 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shaily/common/style.dart';
+import 'package:shaily/controller/register_controller.dart';
 import 'package:shaily/widget/redbox.dart';
 
 import 'commerce1.dart';
 
-
 class Commerce extends StatelessWidget {
-  const Commerce({super.key});
+  Commerce({super.key});
+  RegisterController registerController = Get.find();
+  List<String> topics = [
+    "Accounting",
+    "Bussiness Studies",
+    "Economics",
+    "Bussiness Mathematics",
+    "Informatics",
+    "GST"
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -34,75 +43,38 @@ class Commerce extends StatelessWidget {
               fontSize: 22, color: Colors.black, fontWeight: FontWeight.w500),
         ),
       ),
-      body: Column(
-        children: [
-          SizedBox(
-            height: MediaQuery.of(context).size.height * 0.02,
-          ),
-          InkWell(
-            onTap: () {
-              Get.to(() => Commerce1());
-            },
-            child: RedBox2(
-              text: "Accounting",
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.02,
             ),
-          ),
-          SizedBox(
-            height: MediaQuery.of(context).size.height * 0.06,
-          ),
-          InkWell(
-            onTap: () {
-              Get.to(() => Commerce1());
-            },
-            child: RedBox2(
-              text: "Bussiness studies",
+            ListView.builder(
+              itemCount: topics.length,
+              shrinkWrap: true,
+              physics: NeverScrollableScrollPhysics(),
+              itemBuilder: (context, index) {
+                return Column(
+                  children: [
+                    InkWell(
+                      onTap: () {
+                        registerController.Subject.value = topics[index];
+                        print(registerController.Subject.value);
+                        Get.to(() => Commerce1());
+                      },
+                      child: RedBox2(
+                        text: topics[index],
+                      ),
+                    ),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.06,
+                    ),
+                  ],
+                );
+              },
             ),
-          ),
-          SizedBox(
-            height: MediaQuery.of(context).size.height * 0.06,
-          ),
-          InkWell(
-            onTap: () {
-              Get.to(() => Commerce1());
-            },
-            child: RedBox2(
-              text: "Economics",
-            ),
-          ),
-          SizedBox(
-            height: MediaQuery.of(context).size.height * 0.06,
-          ),
-          InkWell(
-            onTap: () {
-              Get.to(() => Commerce1());
-            },
-            child: RedBox2(
-              text: "Bussiness Mathematics",
-            ),
-          ),
-          SizedBox(
-            height: MediaQuery.of(context).size.height * 0.06,
-          ),
-          InkWell(
-            onTap: () {
-              Get.to(() => Commerce1());
-            },
-            child: RedBox2(
-              text: "Informatics",
-            ),
-          ),
-          SizedBox(
-            height: MediaQuery.of(context).size.height * 0.06,
-          ),
-          InkWell(
-            onTap: () {
-              Get.to(() => Commerce1());
-            },
-            child: RedBox2(
-              text: "GST",
-            ),
-          )
-        ],
+          ],
+        ),
       ),
     );
   }

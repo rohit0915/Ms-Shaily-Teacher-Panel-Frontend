@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shaily/common/style.dart';
 import 'package:shaily/screens/welcome.dart';
+import 'package:shaily/widget/logo.dart';
 
 class Splash_View extends StatefulWidget {
   const Splash_View({super.key});
@@ -28,13 +29,6 @@ class _Splash_ViewState extends State<Splash_View> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Style.bgColor,
-        body: Center(
-          child: Text(
-            "Logo",
-            style: GoogleFonts.roboto(
-                fontSize: 58, fontWeight: FontWeight.w400, color: Colors.black),
-          ),
-        ));
+        backgroundColor: Style.bgColor, body: Center(child: Logo()));
   }
 }

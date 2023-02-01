@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shaily/common/style.dart';
+import 'package:shaily/controller/query_controller.dart';
 import 'package:shaily/widget/button.dart';
 
 class Query extends StatefulWidget {
@@ -12,6 +13,7 @@ class Query extends StatefulWidget {
 }
 
 class _QueryState extends State<Query> {
+  QueryController queryController = Get.put(QueryController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,6 +50,7 @@ class _QueryState extends State<Query> {
                       border: Border.all(color: Colors.black),
                       borderRadius: BorderRadius.circular(4.0)),
                   child: TextField(
+                    controller: queryController.messageController,
                     maxLines: 5,
                     decoration: InputDecoration(
                         constraints: BoxConstraints(
@@ -64,10 +67,21 @@ class _QueryState extends State<Query> {
               height: MediaQuery.of(context).size.height * 0.09,
             ),
             InkWell(
-              onTap: () {
+              onTap: () async {
                 // setState(() {
                 //   isTapped = true;
                 // });
+                await queryController.addquerybyteacher();
+
+                if (queryController.isLoading1 == false) {
+                  queryController.messageController.clear();
+                  Get.defaultDialog(
+                      title: "Success",
+                      content: Text("Your Query is Submitted."));
+                } else {
+                  Get.defaultDialog(
+                      title: "Error", content: Text("Something went wrong"));
+                }
               },
               child: Button(
                 text: "Submit",

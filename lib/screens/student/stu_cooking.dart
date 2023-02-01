@@ -4,13 +4,40 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shaily/common/style.dart';
+import 'package:shaily/controller/register_controller.dart';
 import 'package:shaily/widget/bluebox.dart';
 
 import 'stu_cooking1.dart';
 
-
 class StuCooking extends StatelessWidget {
-  const StuCooking({super.key});
+  StuCooking({super.key});
+  RegisterController registerController = Get.find();
+
+  List<String> topics = [
+    "Cooking/Baking"
+    // "Indian Cuisine",
+    // "Italian Cuisine",
+    // "Chinese Cuisine",
+    // "Japanese Cuisine",
+    // "French Cuisine",
+    // "Mexican Cuisine",
+    // "Thai Cuisine",
+    // "Spanish Cuisine",
+    // "American Cuisine",
+    // "Greek Cuisine",
+    // "Korean Cuisine",
+    // "German Cuisine",
+    // "Labanese Cuisine",
+    // "Russian Cuisine",
+    // "Turkish Cuisine",
+    // "Indonesian Cuisine",
+    // "Malaysian Cuisine",
+    // "Ethopian Cuisine",
+    // "Brazillian Cuisine",
+    // "Vietnamese Cuisine",
+    // "Cuban Cuisine",
+    // "Middle Eastern Cuisine"
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -40,246 +67,33 @@ class StuCooking extends StatelessWidget {
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.03,
             ),
-            InkWell(
-              onTap: () {
-                Get.to(() => StuCooking1());
+            ListView.builder(
+              shrinkWrap: true,
+              itemCount: topics.length,
+              physics: NeverScrollableScrollPhysics(),
+              itemBuilder: (context, index) {
+                return Column(
+                  children: [
+                    InkWell(
+                      onTap: () {
+                        registerController.Subject.value = topics[index];
+                        print(registerController.Subject.value);
+                        Get.to(() => StuCooking1());
+                      },
+                      child: BlueBox2(
+                        text: topics[index],
+                      ),
+                    ),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.01,
+                    ),
+                  ],
+                );
               },
-              child: BlueBox2(
-                text: "Indian Cuisine",
-              ),
             ),
             SizedBox(
-              height: MediaQuery.of(context).size.height * 0.01,
+              height: MediaQuery.of(context).size.height * 0.08,
             ),
-            InkWell(
-              onTap: () {
-                Get.to(() => StuCooking1());
-              },
-              child: BlueBox2(
-                text: "Italian Cuisine",
-              ),
-            ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.01,
-            ),
-            InkWell(
-              onTap: () {
-                Get.to(() => StuCooking1());
-              },
-              child: BlueBox2(
-                text: "Chinese Cuisine",
-              ),
-            ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.01,
-            ),
-            InkWell(
-              onTap: () {
-                Get.to(() => StuCooking1());
-              },
-              child: BlueBox2(
-                text: "Japanese Cuisine",
-              ),
-            ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.01,
-            ),
-            InkWell(
-              onTap: () {
-                Get.to(() => StuCooking1());
-              },
-              child: BlueBox2(
-                text: "French Cuisine",
-              ),
-            ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.01,
-            ),
-            InkWell(
-              onTap: () {
-                Get.to(() => StuCooking1());
-              },
-              child: BlueBox2(
-                text: "Mexican Cuisine",
-              ),
-            ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.01,
-            ),
-            InkWell(
-              onTap: () {
-                Get.to(() => StuCooking1());
-              },
-              child: BlueBox2(
-                text: "Thai Cuisine",
-              ),
-            ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.01,
-            ),
-            InkWell(
-              onTap: () {
-                Get.to(() => StuCooking1());
-              },
-              child: BlueBox2(
-                text: "spanish Cuisine",
-              ),
-            ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.01,
-            ),
-            InkWell(
-              onTap: () {
-                Get.to(() => StuCooking1());
-              },
-              child: BlueBox2(
-                text: "American Cuisine",
-              ),
-            ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.01,
-            ),
-            InkWell(
-              onTap: () {
-                Get.to(() => StuCooking1());
-              },
-              child: BlueBox2(
-                text: "Greek Cuisine",
-              ),
-            ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.01,
-            ),
-            InkWell(
-              onTap: () {
-                Get.to(() => StuCooking1());
-              },
-              child: BlueBox2(
-                text: "Korean Cuisine",
-              ),
-            ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.01,
-            ),
-            InkWell(
-              onTap: () {
-                Get.to(() => StuCooking1());
-              },
-              child: BlueBox2(
-                text: "German Cuisine",
-              ),
-            ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.01,
-            ),
-            InkWell(
-              onTap: () {
-                Get.to(() => StuCooking1());
-              },
-              child: BlueBox2(
-                text: "Labanese Cuisine",
-              ),
-            ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.01,
-            ),
-            InkWell(
-              onTap: () {
-                Get.to(() => StuCooking1());
-              },
-              child: BlueBox2(
-                text: "Russian Cuisine",
-              ),
-            ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.01,
-            ),
-            InkWell(
-              onTap: () {
-                Get.to(() => StuCooking1());
-              },
-              child: BlueBox2(
-                text: "Turkish Cuisine",
-              ),
-            ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.01,
-            ),
-            InkWell(
-              onTap: () {
-                Get.to(() => StuCooking1());
-              },
-              child: BlueBox2(
-                text: "Indonesian Cuisine",
-              ),
-            ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.01,
-            ),
-            InkWell(
-              onTap: () {
-                Get.to(() => StuCooking1());
-              },
-              child: BlueBox2(
-                text: "Malaysian Cuisine",
-              ),
-            ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.01,
-            ),
-            InkWell(
-              onTap: () {
-                Get.to(() => StuCooking1());
-              },
-              child: BlueBox2(
-                text: "Ethopian Cuisine",
-              ),
-            ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.01,
-            ),
-            InkWell(
-              onTap: () {
-                Get.to(() => StuCooking1());
-              },
-              child: BlueBox2(
-                text: "Brazillian Cuisine",
-              ),
-            ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.01,
-            ),
-            InkWell(
-              onTap: () {
-                Get.to(() => StuCooking1());
-              },
-              child: BlueBox2(
-                text: "Vietnamese Cuisine",
-              ),
-            ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.01,
-            ),
-            InkWell(
-              onTap: () {
-                Get.to(() => StuCooking1());
-              },
-              child: BlueBox2(
-                text: "Cuban Cuisine",
-              ),
-            ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.01,
-            ),
-            InkWell(
-              onTap: () {
-                Get.to(() => StuCooking1());
-              },
-              child: BlueBox2(
-                text: "Middle Eastern Cuisine ",
-              ),
-            ),
-            SizedBox(height: MediaQuery.of(context).size.height * 0.08),
           ],
         ),
       ),

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'package:google_fonts/google_fonts.dart';
+import 'package:shaily/controller/login_controller.dart';
+import 'package:shaily/controller/register_controller.dart';
 
 import 'package:shaily/screens/teacher/query.dart';
 import 'package:shaily/screens/teacher/rating.dart';
@@ -13,7 +15,9 @@ import 'stu_query.dart';
 import 'stu_rating.dart';
 
 class StuHome extends StatelessWidget {
-  const StuHome({super.key});
+  StuHome({super.key});
+  RegisterController registerController = Get.find();
+  LoginController loginController = Get.find();
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +42,7 @@ class StuHome extends StatelessWidget {
               height: MediaQuery.of(context).size.height * 0.1,
             ),
             InkWell(
-              onTap: () {
+              onTap: () async {
                 Get.to(() => StuCategories());
               },
               child: Container(
@@ -110,7 +114,8 @@ class StuHome extends StatelessWidget {
                     height: MediaQuery.of(context).size.height * 0.01,
                   ),
                   InkWell(
-                    onTap: () {
+                    onTap: () async {
+                      loginController.about();
                       Get.to(() => StuAboutUs());
                     },
                     child: Text(
@@ -125,11 +130,12 @@ class StuHome extends StatelessWidget {
                     height: MediaQuery.of(context).size.height * 0.01,
                   ),
                   InkWell(
-                    onTap: () {
+                    onTap: () async {
+                      await loginController.legal();
                       Get.to(() => StuLegal());
                     },
                     child: Text(
-                      "Legal information",
+                      "Privacy Policy",
                       style: GoogleFonts.roboto(
                           fontSize: 16,
                           fontWeight: FontWeight.w400,

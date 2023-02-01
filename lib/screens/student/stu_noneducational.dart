@@ -4,6 +4,8 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shaily/common/style.dart';
+import 'package:shaily/controller/register_controller.dart';
+import 'package:shaily/screens/student/stu_languages.dart';
 
 import 'package:shaily/widget/bluebox.dart';
 
@@ -11,8 +13,6 @@ import 'stu_cooking.dart';
 import 'stu_craft.dart';
 import 'stu_music.dart';
 import 'stu_sport.dart';
-
-
 
 class StuNonEducational extends StatefulWidget {
   const StuNonEducational({super.key});
@@ -22,6 +22,7 @@ class StuNonEducational extends StatefulWidget {
 }
 
 class _StuNonEducationalState extends State<StuNonEducational> {
+  RegisterController registerController = Get.find();
   // bool isTapped = false;
   // bool isCooking = false;
   // bool isMusic = false;
@@ -55,75 +56,43 @@ class _StuNonEducationalState extends State<StuNonEducational> {
         children: [
           InkWell(
               onTap: () {
-                // setState(() {
-                //   isTapped = true;
-                //   isCooking = true;
-                //   isCraft = false;
-                //   isMusic = false;
-                //   isSport = false;
-                // });
+                registerController.Stream.value = "Cooking / Baking";
+                print(registerController.Stream.value);
                 Get.to(() => StuCooking());
               },
               child: BlueBox(text: "Cooking / Baking")),
           SizedBox(height: MediaQuery.of(context).size.height * 0.06),
           InkWell(
               onTap: () {
-                // setState(() {
-                //   isTapped = true;
-                //   isCooking = false;
-                //   isCraft = false;
-                //   isMusic = true;
-                //   isSport = false;
-                // });
+                registerController.Stream.value = "Music / Dance";
+                print(registerController.Stream.value);
                 Get.to(() => StuMusic());
               },
               child: BlueBox(text: "Music / Dance")),
           SizedBox(height: MediaQuery.of(context).size.height * 0.06),
           InkWell(
               onTap: () {
-                // setState(() {
-                //   isTapped = true;
-                //   isCooking = false;
-                //   isCraft = false;
-                //   isMusic = false;
-                //   isSport = true;
-                // });
+                registerController.Stream.value = "Sports / Gymnasiam";
+                print(registerController.Stream.value);
                 Get.to(() => StuSport());
               },
               child: BlueBox(text: "Sports / Gymnasiam")),
           SizedBox(height: MediaQuery.of(context).size.height * 0.06),
           InkWell(
               onTap: () {
-                // setState(() {
-                //   isTapped = true;
-                //   isCooking = false;
-                //   isCraft = true;
-                //   isMusic = false;
-                //   isSport = false;
-                // });
+                registerController.Stream.value = "Arts / Crafts";
+                print(registerController.Stream.value);
                 Get.to(() => StuCraft());
               },
               child: BlueBox(text: "Arts / Crafts")),
           SizedBox(height: MediaQuery.of(context).size.height * 0.08),
-          // isTapped
-          //     ? InkWell(
-          //         onTap: () {
-          //           // Get.to(() => LocateStudent());
-          //           if (isCooking) {
-          //             Get.to(() => Cooking());
-          //           }
-          //           if (isMusic) {
-          //             Get.to(() => Music());
-          //           }
-          //           if (isSport) {
-          //             Get.to(() => Sport());
-          //           }
-          //           if (isCraft) {
-          //             Get.to(() => Craft());
-          //           }
-          //         },
-          //         child: Button2())
-          //     : Container()
+          InkWell(
+              onTap: () {
+                registerController.Stream.value = "Languages";
+                print(registerController.Stream.value);
+                Get.to(() => StuLanguages());
+              },
+              child: BlueBox(text: "Languages")),
         ],
       ),
     );

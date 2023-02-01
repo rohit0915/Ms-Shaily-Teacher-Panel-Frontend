@@ -4,14 +4,15 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shaily/common/style.dart';
+import 'package:shaily/controller/register_controller.dart';
 import 'package:shaily/widget/bluebox.dart';
 import 'package:shaily/widget/button.dart';
 
 import 'stu_home.dart';
 
-
 class StuCommerce1 extends StatelessWidget {
-  const StuCommerce1({super.key});
+  StuCommerce1({super.key});
+  RegisterController registerController = Get.find();
 
   @override
   Widget build(BuildContext context) {
@@ -44,8 +45,23 @@ class StuCommerce1 extends StatelessWidget {
             height: MediaQuery.of(context).size.height * 0.2,
           ),
           InkWell(
-              onTap: () {
-                Get.to(() => StuHome());
+              onTap: () async {
+                await registerController.sturegister();
+                await registerController.topicChange();
+                await registerController.getStudent();
+                if (registerController.isLoading == false ||
+                    registerController.isLoading1 == false) {
+                  Get.defaultDialog(
+                    title: "Success",
+                    content: Text("Your Profile is Created."),
+                    onConfirm: () {
+                      Get.to(() => StuHome());
+                    },
+                  );
+                } else {
+                  Get.defaultDialog(
+                      title: "Error", content: Text("Something went wrong."));
+                }
               },
               child: Button2())
         ],

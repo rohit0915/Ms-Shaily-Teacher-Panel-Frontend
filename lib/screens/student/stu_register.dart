@@ -3,13 +3,17 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shaily/common/style.dart';
+import 'package:shaily/controller/login_controller.dart';
+import 'package:shaily/controller/register_controller.dart';
 import 'package:shaily/widget/button.dart';
 import 'package:shaily/widget/logo.dart';
 
 import 'stu_categories.dart';
 
 class StuRegister extends StatelessWidget {
-  const StuRegister({super.key});
+  StuRegister({super.key});
+  RegisterController registerController = Get.put(RegisterController());
+  LoginController loginController = Get.find();
 
   @override
   Widget build(BuildContext context) {
@@ -20,16 +24,42 @@ class StuRegister extends StatelessWidget {
           child: Column(
             children: [
               Logo(),
-              TField(text: "First Name"),
-              TField(text: "Last Name"),
-              TField(text: "Phone Number"),
-              TField(text: "High Qualifications"),
-              TField(text: "Select class you prefer "),
+              TField(
+                  text: "First Name",
+                  keyboardtype: TextInputType.name,
+                  controller: registerController.firstnameController,
+                  readonly: false),
+              TField(
+                  keyboardtype: TextInputType.name,
+                  text: "Last Name",
+                  controller: registerController.lastnameController,
+                  readonly: false),
+              TField(
+                  keyboardtype: TextInputType.phone,
+                  text: "Phone Number",
+                  controller: loginController.numberController,
+                  readonly: true),
+              TField(
+                  keyboardtype: TextInputType.number,
+                  text: "High Qualifications",
+                  controller: registerController.qualificationController,
+                  readonly: false),
+              TField(
+                  keyboardtype: TextInputType.number,
+                  text: "Select class you prefer ",
+                  controller: registerController.classController,
+                  readonly: false),
               SizedBox(
                 height: MediaQuery.of(context).size.height * 0.03,
               ),
               InkWell(
-                  onTap: () {
+                  onTap: () async {
+                    await registerController.getLocation().then((value) {
+                      registerController.lat.value = "${value.latitude}";
+                      registerController.long.value = "${value.longitude}";
+                    });
+                    print(registerController.lat.value);
+                    print(registerController.long.value);
                     Get.to(() => StuCategories());
                   },
                   child: Button(
@@ -47,7 +77,15 @@ class StuRegister extends StatelessWidget {
 
 class TField extends StatelessWidget {
   final String text;
-  const TField({super.key, required this.text});
+  final bool readonly;
+  final TextInputType keyboardtype;
+  final TextEditingController controller;
+  const TField(
+      {super.key,
+      required this.text,
+      required this.controller,
+      required this.readonly,
+      required this.keyboardtype});
 
   @override
   Widget build(BuildContext context) {
@@ -64,6 +102,9 @@ class TField extends StatelessWidget {
             height: MediaQuery.of(context).size.height * 0.01,
           ),
           TextFormField(
+              controller: controller,
+              keyboardType: keyboardtype,
+              readOnly: readonly,
               decoration: InputDecoration(
                   constraints: BoxConstraints(
                       maxHeight: MediaQuery.of(context).size.height * 0.045,

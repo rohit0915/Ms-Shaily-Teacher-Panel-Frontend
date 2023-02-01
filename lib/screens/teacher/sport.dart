@@ -4,13 +4,30 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shaily/common/style.dart';
+import 'package:shaily/controller/register_controller.dart';
 import 'package:shaily/widget/bluebox.dart';
 
 import 'sport1.dart';
 
-
 class Sport extends StatelessWidget {
-  const Sport({super.key});
+  Sport({super.key});
+  RegisterController registerController = Get.find();
+  List<String> topics = [
+    "Batminton",
+    "Basketball",
+    "Tumbling",
+    "Weight Lifting",
+    "Dead Lifting",
+    "Archery",
+    "Bowling",
+    "Hockey",
+    "Lawn Hockey",
+    "Cricket",
+    "Driving",
+    "Dietician",
+    "Gym Trainer",
+    "Yoga"
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -34,130 +51,38 @@ class Sport extends StatelessWidget {
               color: Colors.black,
             )),
       ),
-      body: Column(
-        children: [
-          SizedBox(
-            height: MediaQuery.of(context).size.height * 0.03,
-          ),
-          InkWell(
-            onTap: () {
-              Get.to(() => Sport1());
-            },
-            child: BlueBox2(
-              text: "Tumbling",
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.03,
             ),
-          ),
-          SizedBox(
-            height: MediaQuery.of(context).size.height * 0.03,
-          ),
-          InkWell(
-            onTap: () {
-              Get.to(() => Sport1());
-            },
-            child: BlueBox2(
-              text: "Weight Lifting",
+            ListView.builder(
+              shrinkWrap: true,
+              physics: NeverScrollableScrollPhysics(),
+              itemCount: topics.length,
+              itemBuilder: (context, index) {
+                return Column(
+                  children: [
+                    InkWell(
+                      onTap: () {
+                        registerController.Subject.value = topics[index];
+                        print(registerController.Subject.value);
+                        Get.to(() => Sport1());
+                      },
+                      child: BlueBox2(
+                        text: topics[index],
+                      ),
+                    ),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.03,
+                    ),
+                  ],
+                );
+              },
             ),
-          ),
-          SizedBox(
-            height: MediaQuery.of(context).size.height * 0.03,
-          ),
-          InkWell(
-            onTap: () {
-              Get.to(() => Sport1());
-            },
-            child: BlueBox2(
-              text: "Dead Lifting",
-            ),
-          ),
-          SizedBox(
-            height: MediaQuery.of(context).size.height * 0.03,
-          ),
-          InkWell(
-            onTap: () {
-              Get.to(() => Sport1());
-            },
-            child: BlueBox2(
-              text: "Archery",
-            ),
-          ),
-          SizedBox(
-            height: MediaQuery.of(context).size.height * 0.03,
-          ),
-          InkWell(
-            onTap: () {
-              Get.to(() => Sport1());
-            },
-            child: BlueBox2(
-              text: "Bowling",
-            ),
-          ),
-          SizedBox(
-            height: MediaQuery.of(context).size.height * 0.03,
-          ),
-          InkWell(
-            onTap: () {
-              Get.to(() => Sport1());
-            },
-            child: BlueBox2(
-              text: "Hockey",
-            ),
-          ),
-          SizedBox(
-            height: MediaQuery.of(context).size.height * 0.03,
-          ),
-          InkWell(
-            onTap: () {
-              Get.to(() => Sport1());
-            },
-            child: BlueBox2(
-              text: "Lawn Hockey",
-            ),
-          ),
-          SizedBox(
-            height: MediaQuery.of(context).size.height * 0.03,
-          ),
-          InkWell(
-            onTap: () {
-              Get.to(() => Sport1());
-            },
-            child: BlueBox2(
-              text: "Cricket",
-            ),
-          ),
-          SizedBox(
-            height: MediaQuery.of(context).size.height * 0.03,
-          ),
-          InkWell(
-            onTap: () {
-              Get.to(() => Sport1());
-            },
-            child: BlueBox2(
-              text: "Driving",
-            ),
-          ),
-          SizedBox(
-            height: MediaQuery.of(context).size.height * 0.03,
-          ),
-          InkWell(
-            onTap: () {
-              Get.to(() => Sport1());
-            },
-            child: BlueBox2(
-              text: "Dietician",
-            ),
-          ),
-          SizedBox(
-            height: MediaQuery.of(context).size.height * 0.03,
-          ),
-          InkWell(
-            onTap: () {
-              Get.to(() => Sport1());
-            },
-            child: BlueBox2(
-              text: "Gym Trainer",
-            ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

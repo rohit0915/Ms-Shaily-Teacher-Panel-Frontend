@@ -4,6 +4,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shaily/common/style.dart';
+import 'package:shaily/controller/register_controller.dart';
 
 import 'package:shaily/widget/bluebox.dart';
 import 'package:shaily/widget/button.dart';
@@ -21,6 +22,7 @@ class Educational extends StatefulWidget {
 }
 
 class _EducationalState extends State<Educational> {
+  RegisterController registerController = Get.find();
   // bool isScience = false;
   // bool isArt = false;
   // bool isCommerce = false;
@@ -61,6 +63,8 @@ class _EducationalState extends State<Educational> {
                 //   isArt = false;
                 //   isTapped = true;
                 // });
+                registerController.Subject.value = "Science";
+                print(registerController.Subject.value);
                 Get.to(() => Science());
               },
               child
@@ -76,6 +80,8 @@ class _EducationalState extends State<Educational> {
                 //   isScience = false;
                 //   isTapped = true;
                 // });
+                registerController.Subject.value = "Art";
+                print(registerController.Subject.value);
                 Get.to(() => Art());
               },
               child
@@ -90,6 +96,8 @@ class _EducationalState extends State<Educational> {
                 //   isScience = false;
                 //   isTapped = true;
                 // });
+                registerController.Subject.value = "Commerce";
+                print(registerController.Subject.value);
                 Get.to(() => Commerce());
               },
               child

@@ -4,13 +4,15 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shaily/common/style.dart';
+import 'package:shaily/controller/register_controller.dart';
 import 'package:shaily/widget/bluebox.dart';
 import 'package:shaily/widget/button.dart';
 
 import 'home.dart';
 
 class Cooking1 extends StatelessWidget {
-  const Cooking1({super.key});
+  Cooking1({super.key});
+  RegisterController registerController = Get.find();
 
   @override
   Widget build(BuildContext context) {
@@ -43,8 +45,23 @@ class Cooking1 extends StatelessWidget {
             height: MediaQuery.of(context).size.height * 0.2,
           ),
           InkWell(
-              onTap: () {
-                Get.to(() => Home());
+              onTap: () async {
+                await registerController.createTeacher();
+                await registerController.teacherupdateTopic();
+                await registerController.getTeacher();
+                if (registerController.isLoading3 == false ||
+                    registerController.isLoading4 == false) {
+                  Get.defaultDialog(
+                    title: "",
+                    content: Text("Your Profile is created."),
+                    onConfirm: () {
+                      Get.to(() => Home());
+                    },
+                  );
+                } else {
+                  Get.defaultDialog(
+                      title: "Error", content: Text("Something went wrong."));
+                }
               },
               child: Button2())
         ],

@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "417441892438",
+    "project_id": "shaily-38595",
+    "storage_bucket": "shaily-38595.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:417441892438:android:ce9def52a091006e1393f7",
+        "android_client_info": {
+          "package_name": "com.example.shaily"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "417441892438-84i3t5ps09lam35rao5016ome0db5ieb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.shaily",
+            "certificate_hash": "7d0ed44c8908e7f89c76e49eea17f802d9697168"
+          }
+        },
+        {
+          "client_id": "417441892438-b6l10lt5ljebftf52mlkojgsdefnd8k8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBCf9aogc_0HsmJJH_P9Tv0rHW1qav63pk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "417441892438-b6l10lt5ljebftf52mlkojgsdefnd8k8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

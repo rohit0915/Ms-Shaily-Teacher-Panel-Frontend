@@ -3,6 +3,8 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:shaily/controller/login_controller.dart';
+import 'package:shaily/controller/subscription_controller.dart';
 import 'package:shaily/screens/teacher/query.dart';
 
 import 'aboutus.dart';
@@ -12,9 +14,15 @@ import 'locate_student.dart';
 import 'rating.dart';
 import 'subscription.dart';
 
-
 class Home extends StatelessWidget {
-  const Home({super.key});
+  Home({super.key});
+  LoginController loginController = Get.find();
+  SubscriptionController subscriptionController =
+      Get.put(SubscriptionController());
+
+  openMap(String long, String lat) async {
+    String googleUrl = "";
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -120,7 +128,8 @@ class Home extends StatelessWidget {
               height: MediaQuery.of(context).size.height * 0.03,
             ),
             InkWell(
-              onTap: () {
+              onTap: () async {
+                await subscriptionController.subscriptionpack();
                 Get.to(() => Subscription());
               },
               child: Container(
@@ -165,7 +174,8 @@ class Home extends StatelessWidget {
                     height: MediaQuery.of(context).size.height * 0.01,
                   ),
                   InkWell(
-                    onTap: () {
+                    onTap: () async {
+                      await loginController.about();
                       Get.to(() => AboutUs());
                     },
                     child: Text(
@@ -180,11 +190,12 @@ class Home extends StatelessWidget {
                     height: MediaQuery.of(context).size.height * 0.01,
                   ),
                   InkWell(
-                    onTap: () {
+                    onTap: () async {
+                      await loginController.legal();
                       Get.to(() => Legal());
                     },
                     child: Text(
-                      "Legal information",
+                      "Privacy Policy",
                       style: GoogleFonts.roboto(
                           fontSize: 16,
                           fontWeight: FontWeight.w400,

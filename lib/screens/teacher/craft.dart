@@ -4,13 +4,27 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shaily/common/style.dart';
+import 'package:shaily/controller/register_controller.dart';
 import 'package:shaily/widget/bluebox.dart';
 
 import 'craft1.dart';
 
-
 class Craft extends StatelessWidget {
-  const Craft({super.key});
+  Craft({super.key});
+  RegisterController registerController = Get.find();
+  List<String> topics = [
+    "Ceremics Crafts",
+    "Fiber & Textiles Crafts",
+    "Flowers Crafts",
+    "Leather works",
+    "Homeware",
+    "Fashions",
+    "Needle works",
+    "Paper Crafts",
+    "Woods & Furnitures Crafts",
+    "Stone Crafts",
+    "Metals Crafts"
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -34,130 +48,41 @@ class Craft extends StatelessWidget {
               color: Colors.black,
             )),
       ),
-      body: Column(
-        children: [
-          SizedBox(
-            height: MediaQuery.of(context).size.height * 0.03,
-          ),
-          InkWell(
-            onTap: () {
-              Get.to(() => Craft1());
-            },
-            child: BlueBox2(
-              text: "Ceremics Crafts",
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.03,
             ),
-          ),
-          SizedBox(
-            height: MediaQuery.of(context).size.height * 0.03,
-          ),
-          InkWell(
-            onTap: () {
-              Get.to(() => Craft1());
-            },
-            child: BlueBox2(
-              text: "Fibre & Textiles Crafts",
+            ListView.builder(
+              shrinkWrap: true,
+              physics: NeverScrollableScrollPhysics(),
+              itemCount: topics.length,
+              itemBuilder: (context, index) {
+                return Column(
+                  children: [
+                    InkWell(
+                      onTap: () {
+                        registerController.Subject.value = topics[index];
+                        print(registerController.Subject.value);
+                        Get.to(() => Craft1());
+                      },
+                      child: BlueBox2(
+                        text: topics[index],
+                      ),
+                    ),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.03,
+                    ),
+                  ],
+                );
+              },
             ),
-          ),
-          SizedBox(
-            height: MediaQuery.of(context).size.height * 0.03,
-          ),
-          InkWell(
-            onTap: () {
-              Get.to(() => Craft1());
-            },
-            child: BlueBox2(
-              text: "Flowers Crafts",
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.08,
             ),
-          ),
-          SizedBox(
-            height: MediaQuery.of(context).size.height * 0.03,
-          ),
-          InkWell(
-            onTap: () {
-              Get.to(() => Craft1());
-            },
-            child: BlueBox2(
-              text: "Leather works",
-            ),
-          ),
-          SizedBox(
-            height: MediaQuery.of(context).size.height * 0.03,
-          ),
-          InkWell(
-            onTap: () {
-              Get.to(() => Craft1());
-            },
-            child: BlueBox2(
-              text: "Homeware",
-            ),
-          ),
-          SizedBox(
-            height: MediaQuery.of(context).size.height * 0.03,
-          ),
-          InkWell(
-            onTap: () {
-              Get.to(() => Craft1());
-            },
-            child: BlueBox2(
-              text: "Fashions",
-            ),
-          ),
-          SizedBox(
-            height: MediaQuery.of(context).size.height * 0.03,
-          ),
-          InkWell(
-            onTap: () {
-              Get.to(() => Craft1());
-            },
-            child: BlueBox2(
-              text: "Needle works",
-            ),
-          ),
-          SizedBox(
-            height: MediaQuery.of(context).size.height * 0.03,
-          ),
-          InkWell(
-            onTap: () {
-              Get.to(() => Craft1());
-            },
-            child: BlueBox2(
-              text: "Paper Crafts",
-            ),
-          ),
-          SizedBox(
-            height: MediaQuery.of(context).size.height * 0.03,
-          ),
-          InkWell(
-            onTap: () {
-              Get.to(() => Craft1());
-            },
-            child: BlueBox2(
-              text: "Woods & Furnitures Crafts",
-            ),
-          ),
-          SizedBox(
-            height: MediaQuery.of(context).size.height * 0.03,
-          ),
-          InkWell(
-            onTap: () {
-              Get.to(() => Craft1());
-            },
-            child: BlueBox2(
-              text: "Stone Crafts",
-            ),
-          ),
-          SizedBox(
-            height: MediaQuery.of(context).size.height * 0.03,
-          ),
-          InkWell(
-            onTap: () {
-              Get.to(() => Craft1());
-            },
-            child: BlueBox2(
-              text: "Metals Crafts",
-            ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

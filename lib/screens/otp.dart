@@ -5,12 +5,14 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pinput/pinput.dart';
 import 'package:shaily/common/style.dart';
+import 'package:shaily/controller/login_controller.dart';
 import 'package:shaily/screens/choose_panel.dart';
 import 'package:shaily/widget/button.dart';
 import 'package:shaily/widget/logo.dart';
 
 class Otp extends StatelessWidget {
-  const Otp({super.key});
+  Otp({super.key});
+  LoginController loginController = Get.find();
 
   @override
   Widget build(BuildContext context) {
@@ -24,6 +26,7 @@ class Otp extends StatelessWidget {
             children: [
               Pinput(
                 length: 4,
+                controller: loginController.otpController,
                 defaultPinTheme: PinTheme(
                     height: 35,
                     width: 35,
@@ -56,8 +59,15 @@ class Otp extends StatelessWidget {
               ),
               Center(
                   child: InkWell(
-                      onTap: () {
-                        Get.to(() => ChoosePanel());
+                      onTap: () async {
+                        await loginController.verifyOtp();
+                        if (loginController.isLoading1 == false) {
+                          Get.to(() => ChoosePanel());
+                        } else {
+                          Get.defaultDialog(
+                              title: "Error",
+                              content: Text("Something went wrong."));
+                        }
                       },
                       child: Button(
                         text: "Continue",

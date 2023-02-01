@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shaily/common/style.dart';
+import 'package:shaily/controller/query_controller.dart';
 import 'package:shaily/widget/button.dart';
 
 class StuQuery extends StatefulWidget {
@@ -12,6 +13,7 @@ class StuQuery extends StatefulWidget {
 }
 
 class _StuQueryState extends State<StuQuery> {
+  QueryController queryController = Get.put(QueryController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,6 +51,7 @@ class _StuQueryState extends State<StuQuery> {
                       borderRadius: BorderRadius.circular(4.0)),
                   child: TextField(
                     maxLines: 5,
+                    controller: queryController.messageController,
                     decoration: InputDecoration(
                         constraints: BoxConstraints(
                           maxHeight: MediaQuery.of(context).size.height * 0.2,
@@ -64,10 +67,16 @@ class _StuQueryState extends State<StuQuery> {
               height: MediaQuery.of(context).size.height * 0.09,
             ),
             InkWell(
-              onTap: () {
-                // setState(() {
-                //   isTapped = true;
-                // });
+              onTap: () async {
+                await queryController.addquery();
+                if (queryController.isLoading == false) {
+                  Get.defaultDialog(
+                      title: "Success",
+                      content: Text("Your Query is Submitted."));
+                } else {
+                  Get.defaultDialog(
+                      title: "Error", content: Text("Something went wrong."));
+                }
               },
               child: Button(
                 text: "Submit",
