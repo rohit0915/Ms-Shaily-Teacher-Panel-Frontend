@@ -12,6 +12,7 @@ import 'package:shaily/model/otp_model.dart';
 import 'package:shaily/model/social_model.dart';
 
 import 'package:shaily/screens/teacher/aboutus.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginController extends GetxController {
   TextEditingController numberController = TextEditingController();
@@ -25,7 +26,7 @@ class LoginController extends GetxController {
   LoginModel? data;
   OtpModel? otpdata;
   SocialModel? socialdata;
-
+ 
   login() async {
     var response = await http.post(Uri.parse(EndPoint.login),
         headers: {"Content-Type": "application/json"},
@@ -49,6 +50,12 @@ class LoginController extends GetxController {
     if (response.statusCode == 200) {
       isLoading1(false);
       otpdata = otpModelFromJson(response.body);
+       final prefs = await SharedPreferences.getInstance();
+
+
+  await prefs.setString('token', otpdata!.accessToken.toString());
+    await prefs.setString('id', otpdata!.data!.id.toString());
+
       print(response.body);
     } else {
       print(response.statusCode);

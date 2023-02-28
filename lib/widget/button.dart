@@ -19,7 +19,7 @@ class Button extends StatelessWidget {
       height: height,
       width: width,
       decoration: BoxDecoration(
-          color: Style.blue, borderRadius: BorderRadius.circular(10)),
+          color: Color(0xFFFF3A3A), borderRadius: BorderRadius.circular(10)),
       child: Text(
         text,
         style: GoogleFonts.roboto(

@@ -40,15 +40,36 @@ class StuRegister extends StatelessWidget {
                   controller: loginController.numberController,
                   readonly: true),
               TField(
-                  keyboardtype: TextInputType.number,
+                  keyboardtype: TextInputType.name,
                   text: "High Qualifications",
                   controller: registerController.qualificationController,
                   readonly: false),
               TField(
-                  keyboardtype: TextInputType.number,
+                  keyboardtype: TextInputType.name,
                   text: "Select class you prefer ",
                   controller: registerController.classController,
                   readonly: false),
+                    TField(
+                  keyboardtype: TextInputType.number,
+                  text: "Gaurdian's Name ",
+                  controller: registerController.gaurdianController,
+                  readonly: false),
+                    TField(
+                  keyboardtype: TextInputType.name,
+                  text: "Nationality ",
+                  controller: registerController.nationalityController,
+                  readonly: false),
+  TField(
+                  keyboardtype: TextInputType.name,
+                  text : "Reliegon",
+                  controller: registerController.reliegonController,
+                  readonly: false),
+                    TField(
+                  keyboardtype: TextInputType.name,
+                  text: "Address ",
+                  controller: registerController.addressController,
+                  readonly: false),
+
               SizedBox(
                 height: MediaQuery.of(context).size.height * 0.03,
               ),

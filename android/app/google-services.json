@@ -9,7 +9,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:417441892438:android:ce9def52a091006e1393f7",
         "android_client_info": {
-          "package_name": "com.example.shaily"
+          "package_name": "com.sj.dobspro"
         }
       },
       "oauth_client": [
@@ -17,7 +17,7 @@
           "client_id": "417441892438-84i3t5ps09lam35rao5016ome0db5ieb.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.example.shaily",
+            "package_name": "com.sj.dobspro",
             "certificate_hash": "7d0ed44c8908e7f89c76e49eea17f802d9697168"
           }
         },

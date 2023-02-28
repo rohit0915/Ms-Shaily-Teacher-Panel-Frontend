@@ -5,16 +5,21 @@ import 'package:http/http.dart' as http;
 import 'package:shaily/common/endpoint.dart';
 import 'package:shaily/controller/login_controller.dart';
 import 'package:shaily/model/subscription_model.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class SubscriptionController extends GetxController {
   LoginController loginController = Get.find();
   RxBool isLoading = true.obs;
   SubscriptionModel? data;
   subscriptionpack() async {
+ final prefs = await SharedPreferences.getInstance();
+var token = await prefs.getInt("token");
+
+
     var response =
         await http.get(Uri.parse(EndPoint.subscriptionpack), headers: {
       "Content-Type": "application/json",
-      'x-access-token': loginController.otpdata!.accessToken!
+      'x-access-token': token.toString()
     });
     print(response.statusCode);
     if (response.statusCode == 200) {

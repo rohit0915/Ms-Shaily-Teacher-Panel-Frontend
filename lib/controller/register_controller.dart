@@ -1,5 +1,7 @@
 import 'dart:convert';
+import 'dart:io';
 
+import 'package:cloudinary_sdk/cloudinary_sdk.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
@@ -15,10 +17,17 @@ import 'package:shaily/model/teacher_register_model.dart';
 class RegisterController extends GetxController {
   LoginController loginController = Get.put(LoginController());
 
+
+  RxString _imageUrl = "".obs;
   TextEditingController firstnameController = TextEditingController();
   TextEditingController lastnameController = TextEditingController();
   TextEditingController qualificationController = TextEditingController();
   TextEditingController classController = TextEditingController();
+  TextEditingController gaurdianController = TextEditingController();
+  TextEditingController addressController = TextEditingController();
+  TextEditingController reliegonController = TextEditingController();
+  TextEditingController nationalityController = TextEditingController();
+
   CreateStudentModel? data;
   StudentModel? studentdata;
   TeacherRegisterModel? teacherdata;
@@ -47,10 +56,12 @@ class RegisterController extends GetxController {
         "category": Category.value,
         "subjectStream": Stream.value,
         "subject": Subject.value,
-        "location" : {
-          "longitude" : long.value,
-          "lattitude" : lat.value
-        }
+        "location": {"longitude": long.value, "lattitude": lat.value},
+        "guardian": gaurdianController.text,
+        "latestQualification": qualificationController.text,
+        "religion": reliegonController.text,
+        "nationality": nationalityController.text,
+        "address": addressController.text
       }),
       headers: {
         "Content-Type": "application/json",
@@ -66,6 +77,40 @@ class RegisterController extends GetxController {
       print(respose.statusCode);
     }
   }
+
+
+
+   Future uploadImagetoCloud(File file) async {
+    final cloudinary = Cloudinary.full(
+      apiKey: "479457454347338",
+      apiSecret: "JnnD89o0AjOzO8BVZkmyq86mYmk",
+      cloudName: "dobdmbei8",
+    );
+
+    if (file != null) {
+      String filename = DateTime.now()
+          .toString()
+          .replaceAll("-", "")
+          .replaceAll(" ", "")
+          .replaceAll(".", "");
+      print(filename);
+      final response = await cloudinary.uploadResource(CloudinaryUploadResource(
+          filePath: file.path,
+          fileBytes: file.readAsBytesSync(),
+          resourceType: CloudinaryResourceType.image,
+          folder: "shaily",
+          fileName: 'image$filename',
+          progressCallback: (count, total) {
+            print('Uploading image from file with progress: $count/$total');
+          }));
+
+      if (response.isSuccessful) {
+        print('Get your image from with ${response.secureUrl}');
+        _imageUrl.value = response.secureUrl!;
+      }
+    }
+  }
+
 
   topicChange() async {
     var response =
@@ -121,10 +166,15 @@ class RegisterController extends GetxController {
           "category": Category.value,
           "subjectStream": Stream.value,
           "subject": Subject.value,
-          "location" : {
-            "longitude" : long.value,
-            "lattitude": lat.value
-          }
+          "location": {"longitude": long.value, "lattitude": lat.value},
+
+      
+
+    "latestQualification":qualificationController.text,
+    "religion":reliegonController.text,
+    "nationality":nationalityController.text,
+    "address":addressController.text
+    
         }));
     print(response.statusCode);
     if (response.statusCode == 201) {

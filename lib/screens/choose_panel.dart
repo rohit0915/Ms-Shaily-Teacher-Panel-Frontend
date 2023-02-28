@@ -32,10 +32,11 @@ class _ChoosePanelState extends State<ChoosePanel> {
               },
               child: Column(
                 children: [
-                  Image.asset(
-                    "assets/teacher.png",
-                    scale: 5,
-                  ),
+                  // Image.asset(
+                  //   "assets/teacher.png",
+                  //   scale: 5,
+                  // ),
+                  
                   SizedBox(height: MediaQuery.of(context).size.height * 0.01),
                   Text(
                     "I’m a Teacher",
@@ -56,10 +57,7 @@ class _ChoosePanelState extends State<ChoosePanel> {
               },
               child: Column(
                 children: [
-                  Image.asset(
-                    "assets/student.png",
-                    scale: 5,
-                  ),
+                  
                   SizedBox(height: MediaQuery.of(context).size.height * 0.01),
                   Text(
                     "I’m a Student ",

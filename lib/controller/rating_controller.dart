@@ -4,10 +4,14 @@ import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'package:shaily/common/endpoint.dart';
 import 'package:shaily/controller/login_controller.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class RatingController extends GetxController {
   LoginController loginController = Get.find();
   rating() async {
+     final prefs = await SharedPreferences.getInstance();
+var token = await prefs.getInt("token");
+
     var response = await http.post(Uri.parse(EndPoint.rating),
         headers: {
           "Content-Type": "application/json",

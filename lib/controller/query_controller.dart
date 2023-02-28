@@ -6,6 +6,7 @@ import 'package:http/http.dart' as http;
 import 'package:shaily/common/endpoint.dart';
 import 'package:shaily/controller/login_controller.dart';
 import 'package:shaily/controller/register_controller.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class QueryController extends GetxController {
   RxBool isLoading = true.obs;
@@ -33,13 +34,17 @@ class QueryController extends GetxController {
   }
 
   addquerybyteacher() async {
+  final prefs = await SharedPreferences.getInstance();
+var token = await prefs.getInt("token");
+
+
     var response = await http.post(
         Uri.parse(EndPoint.addquerybyteacher +
             registerController.teacher!.data.id +
             "/queries"),
         headers: {
           "Content-Type": "application/json",
-          'x-access-token': loginController.otpdata!.accessToken!
+          'x-access-token': token.toString()
         },
         body: jsonEncode({"message": messageController.text}));
     print(response.statusCode);

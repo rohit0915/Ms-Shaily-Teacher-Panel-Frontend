@@ -47,16 +47,34 @@ class Register extends StatelessWidget {
               ),
               TField(
                 text: "High Qualifications",
-                keyboard: TextInputType.number,
+                keyboard: TextInputType.name,
                 controller: registerController.qualificationController,
                 readonly: false,
               ),
               TField(
                 text: "Select class you prefer ",
-                keyboard: TextInputType.number,
+                keyboard: TextInputType.name,
                 controller: registerController.classController,
                 readonly: false,
               ),
+  
+                    TField(
+                  keyboard: TextInputType.name,
+                  text: "Nationality ",
+                  controller: registerController.nationalityController,
+                  readonly: false),
+  TField(
+                  keyboard: TextInputType.name,
+                  text : "Reliegon",
+                  controller: registerController.reliegonController,
+                  readonly: false),
+                    TField(
+                  keyboard: TextInputType.name,
+                  text: "Address ",
+                  controller: registerController.addressController,
+                  readonly: false),
+
+
               SizedBox(
                 height: MediaQuery.of(context).size.height * 0.03,
               ),
