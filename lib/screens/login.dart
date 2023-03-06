@@ -10,6 +10,7 @@ import 'package:shaily/common/style.dart';
 import 'package:shaily/controller/login_controller.dart';
 import 'package:shaily/screens/choose_panel.dart';
 import 'package:shaily/screens/otp.dart';
+import 'package:shaily/screens/teacher/register.dart';
 import 'package:shaily/widget/button.dart';
 import 'package:shaily/widget/logo.dart';
 
@@ -81,7 +82,7 @@ class Login extends StatelessWidget {
                 onTap: () async {
                   await signInWithGoogle();
                   if (loginController.isLoading3 == false) {
-                    Get.to(() => ChoosePanel());
+                    Get.to(() => Register());
                   }
                 },
                 child: Row(

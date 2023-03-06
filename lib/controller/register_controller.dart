@@ -17,11 +17,17 @@ import 'package:shaily/model/teacher_register_model.dart';
 class RegisterController extends GetxController {
   LoginController loginController = Get.put(LoginController());
 
+  RxString _id = "".obs;
 
-  RxString _imageUrl = "".obs;
+  RxString _cert = "".obs;
   TextEditingController firstnameController = TextEditingController();
   TextEditingController lastnameController = TextEditingController();
   TextEditingController qualificationController = TextEditingController();
+  TextEditingController emailcontroller = TextEditingController();
+  TextEditingController aadharController = TextEditingController();
+  TextEditingController voteridController = TextEditingController();
+
+  TextEditingController pancardController = TextEditingController();
   TextEditingController classController = TextEditingController();
   TextEditingController gaurdianController = TextEditingController();
   TextEditingController addressController = TextEditingController();
@@ -51,6 +57,11 @@ class RegisterController extends GetxController {
         "firstName": firstnameController.text,
         "lastName": lastnameController.text,
         "phoneNumber": loginController.numberController.text,
+        "email": emailcontroller.text,
+        "aadharCard": aadharController.text,
+
+        "panCard": pancardController.text,
+        "voterId": voteridController.text,
         "Qualification": qualificationController.text,
         "class": [classController.text],
         "category": Category.value,
@@ -61,7 +72,7 @@ class RegisterController extends GetxController {
         "latestQualification": qualificationController.text,
         "religion": reliegonController.text,
         "nationality": nationalityController.text,
-        "address": addressController.text
+        "address": addressController.text,
       }),
       headers: {
         "Content-Type": "application/json",
@@ -78,39 +89,48 @@ class RegisterController extends GetxController {
     }
   }
 
-
-
-   Future uploadImagetoCloud(File file) async {
-    final cloudinary = Cloudinary.full(
-      apiKey: "479457454347338",
-      apiSecret: "JnnD89o0AjOzO8BVZkmyq86mYmk",
-      cloudName: "dobdmbei8",
-    );
-
-    if (file != null) {
+  Future uploadImagetoCloud(File id, File certificate) async {
+    try {
       String filename = DateTime.now()
           .toString()
           .replaceAll("-", "")
           .replaceAll(" ", "")
           .replaceAll(".", "");
       print(filename);
-      final response = await cloudinary.uploadResource(CloudinaryUploadResource(
-          filePath: file.path,
-          fileBytes: file.readAsBytesSync(),
-          resourceType: CloudinaryResourceType.image,
-          folder: "shaily",
-          fileName: 'image$filename',
-          progressCallback: (count, total) {
-            print('Uploading image from file with progress: $count/$total');
-          }));
 
-      if (response.isSuccessful) {
-        print('Get your image from with ${response.secureUrl}');
-        _imageUrl.value = response.secureUrl!;
+      final cloudinary = Cloudinary.full(
+        apiKey: "479457454347338",
+        apiSecret: "JnnD89o0AjOzO8BVZkmyq86mYmk",
+        cloudName: "dobdmbei8",
+      );
+
+      final idUploadResponse = await cloudinary.uploadFile(
+        filePath: id.path,
+        resourceType: CloudinaryResourceType.image,
+        folder: "shaily",
+        fileName: 'id_$filename',
+      );
+
+      if (idUploadResponse.isSuccessful) {
+        print('Get your image from with ${idUploadResponse.secureUrl}');
+        _id.value = idUploadResponse.secureUrl!;
       }
+
+      final imageUploadResponse = await cloudinary.uploadFile(
+        filePath: certificate.path,
+        resourceType: CloudinaryResourceType.image,
+        folder: "shaily",
+        fileName: 'cert_$filename',
+      );
+
+      if (imageUploadResponse.isSuccessful) {
+        print('Get your image from with ${imageUploadResponse.secureUrl}');
+        _cert.value = imageUploadResponse.secureUrl!;
+      }
+    } catch (e) {
+      print(e);
     }
   }
-
 
   topicChange() async {
     var response =
@@ -167,14 +187,13 @@ class RegisterController extends GetxController {
           "subjectStream": Stream.value,
           "subject": Subject.value,
           "location": {"longitude": long.value, "lattitude": lat.value},
-
-      
-
-    "latestQualification":qualificationController.text,
-    "religion":reliegonController.text,
-    "nationality":nationalityController.text,
-    "address":addressController.text
-    
+          "latestQualification": qualificationController.text,
+          "religion": reliegonController.text,
+          "nationality": nationalityController.text,
+          "address": addressController.text,
+          "email": emailcontroller.text,
+          "latestQualificationDocument": _id.value,
+          "governmentDocument": _cert.value,
         }));
     print(response.statusCode);
     if (response.statusCode == 201) {

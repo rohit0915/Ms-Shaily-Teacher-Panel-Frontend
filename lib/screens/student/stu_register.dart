@@ -39,6 +39,7 @@ class StuRegister extends StatelessWidget {
                   text: "Phone Number",
                   controller: loginController.numberController,
                   readonly: true),
+                  TField(text: "Email", controller : registerController.emailcontroller, readonly: false, keyboardtype : TextInputType.emailAddress),
               TField(
                   keyboardtype: TextInputType.name,
                   text: "High Qualifications",
@@ -53,6 +54,21 @@ class StuRegister extends StatelessWidget {
                   keyboardtype: TextInputType.number,
                   text: "Gaurdian's Name ",
                   controller: registerController.gaurdianController,
+                  readonly: false),
+                  TField(
+                  keyboardtype: TextInputType.number,
+                  text: "AADHAR Card",
+                  controller: registerController.aadharController,
+                  readonly: false),
+                    TField(
+                  keyboardtype: TextInputType.number,
+                  text: "PAN Card ",
+                  controller: registerController.pancardController,
+                  readonly: false),
+                    TField(
+                  keyboardtype: TextInputType.number,
+                  text: "Voter ID ",
+                  controller: registerController.voteridController,
                   readonly: false),
                     TField(
                   keyboardtype: TextInputType.name,

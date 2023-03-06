@@ -1,9 +1,12 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:shaily/common/style.dart';
 import 'package:shaily/controller/login_controller.dart';
 import 'package:shaily/controller/register_controller.dart';
@@ -13,10 +16,23 @@ import 'package:shaily/widget/logo.dart';
 
 import 'categories.dart';
 
-class Register extends StatelessWidget {
+class Register extends StatefulWidget {
   Register({super.key});
+
+  @override
+  State<Register> createState() => _RegisterState();
+}
+
+class _RegisterState extends State<Register> {
   RegisterController registerController = Get.put(RegisterController());
+
   LoginController loginController = Get.find();
+
+  final ImagePicker _picker = ImagePicker();
+
+  XFile? certificate;
+
+  XFile? id;
 
   @override
   Widget build(BuildContext context) {
@@ -46,10 +62,45 @@ class Register extends StatelessWidget {
                 readonly: true,
               ),
               TField(
+                  text: "Email",
+                  controller: registerController.emailcontroller,
+                  readonly: false,
+                  keyboard: TextInputType.emailAddress),
+              TField(
                 text: "High Qualifications",
                 keyboard: TextInputType.name,
                 controller: registerController.qualificationController,
                 readonly: false,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 20, right: 20),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "Upload Latest Certificate",
+                      style: GoogleFonts.roboto(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w400,
+                          color: Colors.black),
+                    ),
+                    certificate != null
+                        ? Icon(Icons.check)
+                        : OutlinedButton(
+                            onPressed: () async {
+                              final temp = await _picker.pickImage(
+                                  source: ImageSource.gallery);
+
+                              setState(() {
+                                certificate = temp;
+                              });
+                            },
+                            child: Text("Upload"))
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.01,
               ),
               TField(
                 text: "Select class you prefer ",
@@ -57,24 +108,43 @@ class Register extends StatelessWidget {
                 controller: registerController.classController,
                 readonly: false,
               ),
-  
-                    TField(
+              TField(
                   keyboard: TextInputType.name,
                   text: "Nationality ",
                   controller: registerController.nationalityController,
                   readonly: false),
-  TField(
-                  keyboard: TextInputType.name,
-                  text : "Reliegon",
-                  controller: registerController.reliegonController,
-                  readonly: false),
-                    TField(
+              Padding(
+                padding: const EdgeInsets.only(left: 20, right: 20),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "Government Id",
+                      style: GoogleFonts.roboto(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w400,
+                          color: Colors.black),
+                    ),
+                    id != null
+                        ? Icon(Icons.check)
+                        : OutlinedButton(
+                            onPressed: () async {
+                              final temp = await _picker.pickImage(
+                                  source: ImageSource.gallery);
+                              setState(() {
+                                id = temp;
+                              });
+                            },
+                            child: Text("Upload"))
+                  ],
+                ),
+              ),
+              
+              TField(
                   keyboard: TextInputType.name,
                   text: "Address ",
                   controller: registerController.addressController,
                   readonly: false),
-
-
               SizedBox(
                 height: MediaQuery.of(context).size.height * 0.03,
               ),
@@ -84,6 +154,8 @@ class Register extends StatelessWidget {
                       registerController.lat.value = "${value.latitude}";
                       registerController.long.value = "${value.longitude}";
                     });
+                    await registerController.uploadImagetoCloud(
+                        File(id!.path), File(certificate!.path));
                     print(registerController.lat.value);
                     print(registerController.long.value);
                     Get.to(() => Categories());
